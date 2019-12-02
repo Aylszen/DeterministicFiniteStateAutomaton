@@ -15,7 +15,12 @@ public class State {
 	}
 
 	public State goToNextState(String inputData) {
-		return transition.selectNextState(inputData);
+		if(Data.availableSymbols.contains(inputData))
+		{
+			return transition.selectNextState(inputData);
+		}
+		System.out.println("Symbol does not belong to the list of available symbols!");
+		return this;
 	}
 
 	@Override

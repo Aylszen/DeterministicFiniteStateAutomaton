@@ -12,12 +12,14 @@ public class Transition {
 		for (String stringElem : stringAfterSplit) {
 			String[] stringAfterSplit2 = stringElem.split(" ");
 			listAllTransitionsMap.put(stringAfterSplit2[0], Data.listAllStatesMap.get(stringAfterSplit2[1]));
-			System.out.println("Lista tranzycji:");
-			System.out.println(listAllTransitionsMap);
+//			System.out.println("Lista tranzycji:");
+//			System.out.println(listAllTransitionsMap);
 		}
 	}
 
 	public State selectNextState(String value) {
+		System.out.println("Lista tranzycji:");
+		System.out.println(listAllTransitionsMap);
 		return listAllTransitionsMap.get(value);
 	}
 }
