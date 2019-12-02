@@ -1,5 +1,3 @@
-import java.awt.List;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,10 +6,10 @@ public class Transitions {
 	Map<String, State> listAllTransitionsMap = new HashMap<String, State>();
 
 	public Transitions(String Value) {
-		String[] stringAfterSplit = Value.split(";");
-		for (String stringElem : stringAfterSplit) {
-			String[] stringAfterSplit2 = stringElem.split(" ");
-			listAllTransitionsMap.put(stringAfterSplit2[0], Data.listAllStatesMap.get(stringAfterSplit2[1]));
+		String[] stringAfterSemicolonSplit = Value.split(";");
+		for (String stringElem : stringAfterSemicolonSplit) {
+			String[] stringAfterSpaceSplit = stringElem.split(" ");
+			listAllTransitionsMap.put(stringAfterSpaceSplit[0], Data.listAllStatesMap.get(stringAfterSpaceSplit[1]));
 		}
 	}
 

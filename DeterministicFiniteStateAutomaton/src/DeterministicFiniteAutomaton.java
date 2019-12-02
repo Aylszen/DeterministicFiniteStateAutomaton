@@ -1,10 +1,3 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
-
 public class DeterministicFiniteAutomaton {
 
 	public static void main(String[] args) {
@@ -12,8 +5,6 @@ public class DeterministicFiniteAutomaton {
 		Data data = new Data();
 		data.setInitialValues();
 		start();
-		
-		
 	}
 	static public void start()
 	{
