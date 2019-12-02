@@ -4,18 +4,13 @@ import java.util.Map;
 
 public class Data {
 
-	static Map<String, State> listAllStatesMap;
-	static String startingState;
-	static ArrayList<State> acceptingStates;
-	static ArrayList<String> availableSymbols;
+	static Map<String, State> listAllStatesMap = new  HashMap<String, State>();
+	static String startingState = new String();
+	static ArrayList<State> acceptingStates = new ArrayList<State>();
+	static ArrayList<String> availableSymbols = new ArrayList<String>();
 	
-	public Data()
+	public void setInitialValues()
 	{
-		listAllStatesMap = new HashMap<String, State>();
-		startingState = new String();
-		acceptingStates = new ArrayList<State>();
-		availableSymbols = new ArrayList<String>();
-		
 		for (int i = 0; i < 20; i++)
 		{
 			String stateName = "q" + i;
@@ -37,6 +32,10 @@ public class Data {
 		listAllStatesMap.get("q11").setTransitions("1 q12;2 q13;5 q16");
 		listAllStatesMap.get("q12").setTransitions("1 q13;2 q14;5 q17");
 
+		listAllStatesMap.get("q13").setTransitions("1 q0;2 q0;5 q0");
+		listAllStatesMap.get("q14").setTransitions("1 q0;2 q0;5 q0");
+		listAllStatesMap.get("q17").setTransitions("1 q0;2 q0;5 q0");
+		
 		startingState = "q0";
 		
 		availableSymbols.add("1");

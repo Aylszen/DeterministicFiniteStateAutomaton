@@ -1,5 +1,5 @@
 public class State {
-	Transition transition;
+	Transitions transitions;
 	private String name;
 
 	public State() {
@@ -11,13 +11,13 @@ public class State {
 	}
 
 	public void setTransitions(String value) {
-		transition = new Transition(value);
+		transitions = new Transitions(value);
 	}
 
 	public State goToNextState(String inputData) {
 		if(Data.availableSymbols.contains(inputData))
 		{
-			return transition.selectNextState(inputData);
+			return transitions.selectNextState(inputData);
 		}
 		System.out.println("Symbol does not belong to the list of available symbols!");
 		return this;
@@ -25,7 +25,6 @@ public class State {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return name;
 	}
 }
