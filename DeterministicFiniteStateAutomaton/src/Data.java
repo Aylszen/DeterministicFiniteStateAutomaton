@@ -39,7 +39,7 @@ public class Data {
 	public void createStates(int numberOfStates) {
 		for (int i = 0; i < numberOfStates; i++) {
 			String stateName = "q" + i;
-			listAllStatesMap.put(stateName, new State(stateName));
+			listAllStatesMap.put(stateName, new State(stateName, i));
 		}
 		System.out.print(listAllStatesMap);
 	}

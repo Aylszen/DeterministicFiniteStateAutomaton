@@ -1,13 +1,15 @@
 public class State {
 	Transitions transitions;
 	private String name;
+	private int value;
 
 	public State() {
 
 	}
 
-	public State(String name) {
+	public State(String name, int value) {
 		this.name = name;
+		this.value = value;
 	}
 
 	public void setTransitions(String value) {
@@ -26,5 +28,10 @@ public class State {
 	@Override
 	public String toString() {
 		return name;
+	}
+	
+	int getValue()
+	{
+		return value;
 	}
 }
