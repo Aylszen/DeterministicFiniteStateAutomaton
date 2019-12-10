@@ -6,19 +6,24 @@ public class DeterministicFiniteAutomaton {
 		data.setInitialValues();
 		start();
 	}
-	static public void start()
-	{
-		String[] symbols = {"2", "2", "5"};
+
+	static public void start() {
+		String[] symbols = { "2", "2", "5", "1", "2", "K" };
 		State state = Data.listAllStatesMap.get(Data.startingState);
 		System.out.println("Current state: " + state);
-		boolean isInAcceptingState = false;
-		for (String symbol : symbols)
-		{
+		String automatonPath = new String();
+		automatonPath += "(" + state.toString() + ")-->";
+		for (String symbol : symbols) {
 			state = state.goToNextState(symbol);
 			System.out.println("Current state: " + state + " , current value: " + state.getValue());
-			isInAcceptingState = Data.acceptingStates.contains(state);
+			if (Data.acceptingStates.contains(state)) {
+				automatonPath += "((" + state.toString() + "))";
+				System.out.println(automatonPath);
+				return;
+			} else {
+				automatonPath += "(" + state.toString() + ")-->";
+			}
 		}
-		System.out.println("isInAcceptingState:");
-		System.out.println(isInAcceptingState);
+		System.out.println(automatonPath);
 	}
 }
