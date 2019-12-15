@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class DeterministicFiniteAutomaton {
 
 	public static void main(String[] args) {
@@ -8,12 +10,14 @@ public class DeterministicFiniteAutomaton {
 	}
 
 	static public void start() {
-		String[] symbols = { "2", "2", "5", "1", "2", "K" };
+		Scanner sc = new Scanner(System.in);
+		//String[] symbols = { "2", "2", "5", "1", "2", "K" };
 		State state = Data.listAllStatesMap.get(Data.startingState);
 		System.out.println("Current state: " + state);
+		String symbol = sc.next();
 		String automatonPath = new String();
 		automatonPath += "(" + state.toString() + ")-->";
-		for (String symbol : symbols) {
+		while (!Data.acceptingStates.contains(state)) {
 			state = state.goToNextState(symbol);
 			System.out.println("Current state: " + state + " , current value: " + state.getValue());
 			if (Data.acceptingStates.contains(state)) {
@@ -23,6 +27,7 @@ public class DeterministicFiniteAutomaton {
 			} else {
 				automatonPath += "(" + state.toString() + ")-->";
 			}
+			symbol = sc.next();
 		}
 		System.out.println(automatonPath);
 	}
